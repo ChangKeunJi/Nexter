@@ -1,4 +1,52 @@
 .header {
     background-color: $color-grey-dark-1;
     grid-column: full-start / col-end 6;
+    background-image: linear-gradient(rgba($color-secondary, .93), rgba($color-secondary, .93)), url(../img/hero.jpeg);
+    background-size: cover;
+    background-position: center;
+    padding: 8rem;
+    padding-top: 4rem;
+    display: grid;
+    grid-template-rows: 1fr min-content 6rem 1fr;
+    //? Logo takes space as much as possible, other will take automatically depends on size.
+    grid-template-columns: max-content;
+    //? Width decided by a row has longest content.
+    grid-row-gap: 1.5rem;
+    justify-content: center;
+    &__logo {
+        height: 3rem;
+        justify-self: center;
+    }
+    &__seenon-text {
+        font-size: 1.6rem;
+        color: $color-grey-light-2;
+        display: grid;
+        grid-template-columns: 1fr max-content 1fr;
+        grid-column-gap: 1.5rem;
+        align-items: center;
+        &::before,
+        &::after {
+            content: "";
+            height: 1px;
+            display: block;
+            background-color: currentColor;
+            // justify-self: start;
+            //? No width declaration and doesn't need'em.
+            //? By default, It will be stretched
+        }
+    }
+    &__seenon-logos {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        justify-items: center;
+        grid-column-gap: 3rem;
+        img {
+            height: 2.5rem;
+            filter: brightness(70%);
+        }
+    }
+    &__btn {
+        align-self: start;
+        justify-self: start;
+    }
 }
